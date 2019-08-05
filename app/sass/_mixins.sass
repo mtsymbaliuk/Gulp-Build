@@ -1,0 +1,37 @@
+@mixin border-radius($radius)
+	-webkit-border-radius: $radius
+	-moz-border-radius: $radius
+	-ms-border-radius: $radius
+	border-radius: $radius
+
+@mixin transform($property)
+	transform: $property
+	-webkit-transform: $property
+	-moz-transform: $property
+	-o-transform: $property
+
+@mixin transition($property...)
+	transition: $property
+	-webkit-transition: $property
+	-moz-transition: $property
+	-o-transition: $property
+
+@mixin animation($property)
+	-webkit-animation: $property
+	-moz-animation: $property
+	-o-animation: $property
+	-ms-animation: $property
+	animation: $property
+
+@mixin opacity($opacity)
+	opacity: $opacity
+	$opacity-ie: $opacity * 100
+	filter: alpha(opacity=$opacity-ie)
+
+@mixin getBefore ($top, $left, $width, $height)
+	position: absolute
+	content: ''
+	top: $top
+	left: $left
+	width: $width
+	height: $height

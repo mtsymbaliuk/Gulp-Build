@@ -1,0 +1,30 @@
+@import "bourbon"
+@import "_vars.sass"
+@import "_mixins.sass"
+
+%extend_before
+	position: absolute
+	content: ""
+
+%extend_inline
+	display: inline-block
+	position: relative
+	vertical-align: top
+
+%extend_transform
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%,-50%)
+
+.cont-wrap
+	width: 100%
+	@extend %extend_transform
+
+.main-title
+	@extend %extend_transform
+
+
+
+//ALWAYS END
+@import "media"

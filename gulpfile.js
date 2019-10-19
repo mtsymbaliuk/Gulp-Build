@@ -52,12 +52,6 @@ gulp.task('copyfontAwesome', function(done) {
 	done();
 });
 
-gulp.task('copyfonts', function(done) {
-	gulp.src('app/fonts/**/*.{ttf,woff,woff2,eot,svg}')
-	.pipe(gulp.dest('dist/fonts/'));
-	done();
-});
-
 gulp.task('scriptsConcat', function() {
 	return gulp.src('app/libs/**/*.js', '!app/libs/jquery/jquery.min.js')
 	.pipe(concat('plugin.min.js'))
@@ -122,7 +116,6 @@ gulp.task('default', gulp.series( gulp.series(
 									'scriptsCommon',
 									'copyJquery',
 									'copyfontAwesome',
-									'copyfonts',
 									'vendorCss',							
 									'templates',
 									'compress',

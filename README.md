@@ -23,7 +23,7 @@ npm i # intall folder node_modules
 gulp # run gulpfile.js
 ```
 ## List devDependencies
-```
+```bash
  "browser-sync"
  "gulp"
  "gulp-autoprefixer" 
@@ -36,5 +36,3 @@ gulp # run gulpfile.js
  "gulp-uglify"
  "imagemin-mozjpeg"
  "del"
- 
-

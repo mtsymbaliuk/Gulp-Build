@@ -23,28 +23,18 @@ npm i # intall folder node_modules
 gulp # run gulpfile.js
 ```
 ## List devDependencies
+```
  "browser-sync"
- 
  "gulp"
- 
- "gulp-autoprefixer"
- 
+ "gulp-autoprefixer" 
  "gulp-concat"
- 
  "gulp-csso"
- 
  "gulp-imagemin"
- 
  "gulp-jade"
- 
  "gulp-rename"
- 
  "gulp-sass"
- 
  "gulp-uglify"
- 
  "imagemin-mozjpeg"
- 
  "del"
  
 

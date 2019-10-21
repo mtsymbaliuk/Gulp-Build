@@ -24,15 +24,27 @@ gulp # run gulpfile.js
 ```
 ## List devDependencies
  "browser-sync"
-  "gulp"
-  "gulp-autoprefixer"
-  "gulp-concat"
-  "gulp-csso"
-  "gulp-imagemin"
-  "gulp-jade"
-  "gulp-rename"
-  "gulp-sass"
-  "gulp-uglify"
-  "imagemin-mozjpeg"
-  "del"
+ 
+ "gulp"
+ 
+ "gulp-autoprefixer"
+ 
+ "gulp-concat"
+ 
+ "gulp-csso"
+ 
+ "gulp-imagemin"
+ 
+ "gulp-jade"
+ 
+ "gulp-rename"
+ 
+ "gulp-sass"
+ 
+ "gulp-uglify"
+ 
+ "imagemin-mozjpeg"
+ 
+ "del"
+ 
 

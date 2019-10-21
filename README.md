@@ -2,23 +2,23 @@
 Install node.js by this link https://nodejs.org/en/
 ## Global install (First install & run)
 
-```
+```bash
 npm i —g gulp-cli # global install gulp
 ```
-```
+```bash
 npm init # init new project
 ```
+```bash
+npm i --save-dev gulp # install for local use
 ```
-npm i --save-dev gulp #
-```
-```
-gulp
+```bash
+gulp # run gulpfile.js
 ```
 ## Run gulpfile.js
 
+```bash
+npm i # intall folder node_modules
 ```
-npm i
-```
-```
-gulp
+```bash
+gulp # run gulpfile.js
 ```

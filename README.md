@@ -3,7 +3,7 @@ Install node.js by this link https://nodejs.org/en/
 ## Global install (First install & run)
 
 ```bash
-npm i —g gulp-cli # global install gulp
+npm i —g # global install gulp
 ```
 ```bash
 npm init # init new project

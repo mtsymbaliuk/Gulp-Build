@@ -17,7 +17,7 @@ gulp # run gulpfile.js
 ## Run gulpfile.js
 
 ```bash
-npm i # intall folder node_modules
+npm i # install folder node_modules
 ```
 ```bash
 gulp # run gulpfile.js

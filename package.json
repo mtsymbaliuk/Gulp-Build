@@ -11,18 +11,18 @@
   "devDependencies": {
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^6.1.0",
+    "gulp-autoprefixer": "^7.0.1",
     "gulp-concat": "^2.6.1",
-    "gulp-csso": "^3.0.1",
-    "gulp-imagemin": "^6.0.0",
+    "gulp-csso": "^4.0.1",
+    "gulp-imagemin": "^7.1.0",
     "gulp-jade": "^1.1.0",
-    "gulp-rename": "^1.4.0",
+    "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.0.2",
-    "gulp-uglify": "^3.0.2",
+    "gulp-uglify-es": "^2.0.0",
     "imagemin-mozjpeg": "^8.0.0",
     "node-bourbon": "^4.2.8"
   },
   "dependencies": {
-    "del": "^5.0.0"
+    "del": "^5.1.0"
   }
 }

@@ -7,7 +7,7 @@ const 	gulp = require('gulp'),
 		csso = require('gulp-csso'),
 		autoprefixer = require('gulp-autoprefixer'),
 		imagemin = require('gulp-imagemin'),
-		uglify = require('gulp-uglify'),
+		uglify = require('gulp-uglify-es').default,
 		imageminMozjpeg = require('imagemin-mozjpeg'),
 		browserSync = require('browser-sync').create();	
 	
@@ -36,7 +36,7 @@ gulp.task('compress', () =>
 );
 
 gulp.task('scriptsConcat', () => {
-	return gulp.src('app/libs/**/*.js', '!app/libs/jquery/jquery.min.js')
+	return gulp.src('app/libs/**/*.js')
 	.pipe(concat('plugin.min.js'))
 	.pipe(uglify(''))
 	.pipe(gulp.dest('dist/js'));

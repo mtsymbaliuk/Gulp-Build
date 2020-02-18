@@ -15,11 +15,11 @@ const 	gulp = require('gulp'),
 		plumber = require('gulp-plumber'),
 		server = require('browser-sync').create();	
 	
-module.exports = function clean(cb) {
+const clean = module.exports = function clean() {
 	return del('dist');
 };
 
-module.exports = function pug2html() {
+const pug2html = module.exports = function pug2html() {
 	return gulp.src('app/**/*.pug')
 	.pipe(plumber())
 	.pipe(pug({
@@ -27,9 +27,9 @@ module.exports = function pug2html() {
 	}))
 	.pipe(gulpHtmlBemValidator())
 	.pipe(gulp.dest('./dist/'));
-}();
+};
 		
-module.exports = styles = function() {
+const styles = module.exports = function styles() {
 	return gulp.src('app/sass/**/*.sass')
 	.pipe(plumber())
 	.pipe(sass().on('error', sass.logError))
@@ -42,14 +42,7 @@ module.exports = styles = function() {
 	.pipe(gulp.dest('dist/css'));
 };
 
-module.exports = vendorCss = function() {
-	return gulp.src('app/libs/**/*.css')
-	.pipe(csso('')) 
-	.pipe(rename("vendor.min.css"))
-	.pipe(gulp.dest('dist/css'));
-}; 
-
-module.exports = scripts = function() {
+const scripts = module.exports = function scripts() {
 	return gulp.src('app/js/*.js')
 	.pipe(plumber())
 	.pipe(babel({
@@ -60,7 +53,7 @@ module.exports = scripts = function() {
 	.pipe(gulp.dest('dist/js'));
 };
 
-module.exports = scriptsConcat = function() {
+const scriptsConcat = module.exports = function scriptsConcat() {
 	return gulp.src('app/libs/**/*.js')
 	.pipe(babel({
 		presets: ['@babel/env']
@@ -70,11 +63,22 @@ module.exports = scriptsConcat = function() {
 	.pipe(gulp.dest('dist/js'));
 };
 
-module.exports = compress = function() {
-	gulp.src('app/img/*')
-	.pipe(imagemin([imageminMozjpeg({
-		quality: 85
-	})]))
+const compress = module.exports = function compress() {
+	return gulp.src('app/img/*')
+	.pipe(imagemin([
+		imagemin.gifsicle({ interlaced: true }),
+		imagemin.mozjpeg({
+		  quality: 75,
+		  progressive: true
+		}),
+		imagemin.optipng({ optimizationLevel: 5 }),
+		imagemin.svgo({
+		  plugins: [
+			{ removeViewBox: true },
+			{ cleanupIDs: false }
+		  ]
+		})
+	  ]))
 	.pipe(gulp.dest('dist/img/'))
 };
 
@@ -86,21 +90,20 @@ module.exports = compress = function() {
 // 		.pipe(gulp.dest('dist/fonts'));
 // };
 
-module.exports = serverFunc = function() {
+const serverFunc = module.exports = function serverFunc() {
 	server.init({
 		server: "dist",
 		notify: false,
 		files: ['./dist/**/*.html','./dist/js/*.js','./dist/css/*.css']
 	})
 	
-	gulp.watch('app/sass/*.sass', gulp.series('styles')).on('change', server.reload);
-	gulp.watch('app/js/*.js', gulp.series('scripts')).on('change', server.reload);	
-	gulp.watch('app/**/*.pug', gulp.series('pug2html')).on('change', server.reload);
+	gulp.watch('app/sass/*.sass', gulp.series(styles)).on('change', server.reload);
+	gulp.watch('app/js/*.js', gulp.series(scripts)).on('change', server.reload);	
+	gulp.watch('app/**/*.pug', gulp.series(pug2html)).on('change', server.reload);
 	gulp.watch('build/*.html').on('change', server.reload);
 };
 
-const dev = gulp.parallel( pug2html, styles, vendorCss, scriptsConcat, 
-scripts, compress)
+const dev = gulp.parallel( pug2html, styles, scriptsConcat, scripts, compress)
 
 const build = gulp.series(clean, dev)
 

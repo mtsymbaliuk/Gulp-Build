@@ -3,36 +3,41 @@ Install node.js by this link https://nodejs.org/en/
 ## Global install (First install & run)
 
 ```bash
-npm i —g # global install gulp
+git clone "this repositories" # init new project
 ```
 ```bash
-npm init # init new project
+npm i —g gulp # global install gulp
 ```
 ```bash
-npm i --save-dev gulp # install for local use
+npm i # install node_modules 
 ```
 ```bash
-gulp # run gulpfile.js
-```
-## Run gulpfile.js
-
-```bash
-npm i # install folder node_modules
+npm i --save-dev gulp # install for local use gulp@4.0.2
 ```
 ```bash
-gulp # run gulpfile.js
+npm run start # run gulpfile.js
 ```
 ## List devDependencies
-```bash
- "browser-sync"
- "gulp"
- "gulp-autoprefixer" 
- "gulp-concat"
- "gulp-csso"
- "gulp-imagemin"
- "gulp-jade"
- "gulp-rename"
- "gulp-sass"
- "gulp-uglify"
- "imagemin-mozjpeg"
- "del"
+```javascript
+"devDependencies": {
+    "@babel/core",
+    "@babel/preset-env",
+    "browser-sync",
+    "del",
+    "gulp",
+    "gulp-autoprefixer",
+    "gulp-babel",
+    "gulp-concat",
+    "gulp-csso",
+    "gulp-html-bem-validator",
+    "gulp-imagemin",
+    "gulp-plumber",
+    "gulp-pug",
+    "gulp-rename",
+    "gulp-sass",
+    "gulp-shorthand",
+    "gulp-uglify-es",
+    "imagemin-mozjpeg",
+    "node-bourbon"
+  }
+  ```

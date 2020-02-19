@@ -82,13 +82,10 @@ const compress = module.exports = function compress() {
 	.pipe(gulp.dest('dist/img/'))
 };
 
-// module.exports = copyFonts = async function() {
-// 	let fontAwesome = gulp.src('node_modules/@fortawesome/fontawesome-free/webfonts/*')
-// 		.pipe(gulp.dest('dist/fonts/font-awesome/webfonts/'));	
-
-// 	let fonts = gulp.src('app/fonts/*/**')   
-// 		.pipe(gulp.dest('dist/fonts'));
-// };
+const copyFonts = module.exports = async function copyFonts() {
+	return gulp.src('app/fonts/*/**')   
+	.pipe(gulp.dest('dist/fonts'));
+};
 
 const serverFunc = module.exports = function serverFunc() {
 	server.init({
@@ -103,7 +100,7 @@ const serverFunc = module.exports = function serverFunc() {
 	gulp.watch('build/*.html').on('change', server.reload);
 };
 
-const dev = gulp.parallel( pug2html, styles, scriptsConcat, scripts, compress)
+const dev = gulp.parallel( pug2html, styles, scriptsConcat, scripts, compress, copyFonts)
 
 const build = gulp.series(clean, dev)
 
